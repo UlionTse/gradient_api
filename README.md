@@ -21,6 +21,4 @@ True
 generate(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=None,showPlot=True)
 ```
 
-- *gradient.generate(expr_or_poly1d='x**2+1', showPlot=True)*
-
 ![gradient_11](https://i.imgur.com/Mw4LmdE.gif)
