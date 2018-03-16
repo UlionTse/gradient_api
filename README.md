@@ -33,11 +33,12 @@ True
 ```python
 generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True)
 ```
+
 ```python
 generate_2d(dataFrame,step=0.1,num_iters=1e4)
 ```
 
 
-- *gradient.generate_1d(expr_or_poly1d='x**2+1', showPlot=True)*
+- *[gradient.generate_1d(expr_or_poly1d='x**2+1', showPlot=True)]()*
 
 ![gradient_11](https://i.imgur.com/Mw4LmdE.gif)
