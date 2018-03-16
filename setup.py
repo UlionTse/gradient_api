@@ -39,6 +39,7 @@ setup(
     install_requires=[
         'numpy>=1.13.3',
         'sympy>=1.0',
+        'pandas>=0.18.1',
         'matplotlib>=1.5.3'
     ],
     zip_safe=False,
