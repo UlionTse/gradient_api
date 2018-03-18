@@ -21,7 +21,6 @@ True
 >>> trainData = pandas.DataFrame(numpy.array([[1,3,5,7],[2,4,6,8]]))
 >>> r3 = gradient.generate_2d(trainData)
 >>> print(r3)
-
 {'Gradient': array([-1020.54, -1589.21, -3630.29, -5671.37]),
  'Linear_Coef': array([-16.94, -38.6 , -60.26]),
  'Linear_Intercept': -10.83,
@@ -33,7 +32,7 @@ True
 *Tips:*
 -------
 
->>> generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True)
+>>> generate_1d(expr_or_poly1d,init_x=-0.5,step=0.01,num_iters=1e4,showPlot=False,xlimArr=None,ylimArr=None)
 
 >>> generate_2d(dataFrame,step=0.1,num_iters=1e4)
 

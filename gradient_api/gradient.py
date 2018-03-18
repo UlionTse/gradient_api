@@ -8,7 +8,17 @@ import matplotlib.pyplot as plt
 
 
 
-def generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True):
+def generate_1d(expr_or_poly1d,init_x=-0.5,step=0.01,num_iters=1e4,showPlot=False,xlimArr=None,ylimArr=None):
+    '''
+    :param expr_or_poly1d: str or array1d_like,
+    :param init_x: float,
+    :param step: float,
+    :param num_iters: int or float,
+    :param showPlot: boolean,
+    :param xlimArr: tuple, affect plot_x:
+    :param ylimArr: tuple,
+    :return: dict,
+    '''
     cur_x = np.array([init_x])[0] # avoid Overflow Error.
     step = np.array([step])[0]
     num_iters = int(num_iters)
@@ -25,9 +35,12 @@ def generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True
         y = np.poly1d(L)
         gradient = np.poly1d.deriv(y)
 
-    plot_x = np.linspace(init_x-5,init_x+15,201)
+    if xlimArr:
+        plot_x = np.linspace(init_x-abs(xlimArr[0]),init_x+abs(xlimArr[1]),201)
+    else:
+        plot_x = np.linspace(init_x -5, init_x + 5, 201)
     plot_y = y(plot_x)
-    plt.ion()
+    # plt.ion()
 
     cur_num = 0
     for i in range(num_iters):
@@ -40,6 +53,8 @@ def generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True
             # plt.cla()
             plt.plot(plot_x, plot_y)
             plt.scatter(cur_x, y(cur_x), color='red')
+            if xlimArr: plt.xlim(xlimArr)
+            if ylimArr: plt.ylim(ylimArr)
             plt.pause(0.1)
     plt.ioff()
     plt.show()
@@ -53,7 +68,13 @@ def generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True
 
 
 def generate_2d(dataFrame:pd.DataFrame,step=0.1,num_iters=1e4):
-    # dataFrame 可以看作是 带标签的训练数据集
+    '''
+    :param dataFrame: pandas.DataFrame, like train_data with labels.
+    :param step: float,
+    :param num_iters: int or float,
+    :return: dict,
+    '''
+
     arr = np.hstack([np.ones((len(dataFrame),1)),dataFrame])
     X = pd.DataFrame(arr) # 列名未知
     Y = X.pop(X.shape[1]-1)

@@ -6,7 +6,7 @@ from setuptools import find_packages
 
 PACKAGE = "gradient_api"
 NAME = "gradient_api"
-DESCRIPTION = "API of gradient."
+DESCRIPTION = "API of gradient descent."
 AUTHOR = "UlionTse"
 AUTHOR_EMAIL = "shinalone@outlook.com"
 URL = "https://github.com/shinalone/gradient_api"

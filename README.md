@@ -31,7 +31,7 @@ True
 
 - *Tips:*
 ```python
-generate_1d(expr_or_poly1d,init_x=-10.0,step=0.1,num_iters=1e4,showPlot=True)
+generate_1d(expr_or_poly1d,init_x=-0.5,step=0.01,num_iters=1e4,showPlot=False,xlimArr=None,ylimArr=None)
 ```
 
 ```python
